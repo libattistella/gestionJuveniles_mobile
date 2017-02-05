@@ -17,6 +17,7 @@ public class Menu extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Fecha Actual");
         setSupportActionBar(toolbar);
 
 
