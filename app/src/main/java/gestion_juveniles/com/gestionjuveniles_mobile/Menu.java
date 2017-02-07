@@ -1,5 +1,6 @@
 package gestion_juveniles.com.gestionjuveniles_mobile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -8,10 +9,14 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class Menu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private Button PPafavor;
+    private Button PPencontra;
+    private Button fecha_actual;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +35,16 @@ public class Menu extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        fecha_actual = (Button) findViewById(R.id.button3);
+        fecha_actual.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Menu.this, Fecha_Actual.class);
+
+                startActivity(i);
+            }
+        });
     }
 
     @Override

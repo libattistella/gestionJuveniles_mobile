@@ -9,15 +9,19 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="gestion_juveniles.com.gestionjuveniles_mobile.fecha_actual"
+    tools:context=".Fecha_Actual"
     tools:showIn="@layout/activity_fecha_actual">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:id="@+id/scrollView" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Arquero"
-        android:id="@+id/tv1"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        <ListView
+            android:id="@+id/listaJugadores"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"></ListView>
+    </ScrollView>
+
 </RelativeLayout>
