@@ -10,15 +10,19 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import gestion_juveniles.com.gestionjuveniles_mobile.Modelo.Equipo;
 import gestion_juveniles.com.gestionjuveniles_mobile.Modelo.Jugador;
+import gestion_juveniles.com.gestionjuveniles_mobile.Modelo.Posicion_Jugador;
 import gestion_juveniles.com.gestionjuveniles_mobile.Modelo.Profesor;
 import gestion_juveniles.com.gestionjuveniles_mobile.Repositorio.BuscarEquipoTask;
+import gestion_juveniles.com.gestionjuveniles_mobile.Repositorio.Equipo_Adapter;
 
 public class Fecha_Actual extends AppCompatActivity {
 
     private ListView listaJugadores;
+    private Equipo_Adapter adapter;
     private Profesor prof;
-    private List<Jugador> formacion;
+    private List<Posicion_Jugador> formacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,20 +39,18 @@ public class Fecha_Actual extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        boolean cargado = equipocargado();
-
-        if(cargado)
-            new BuscarEquipoTask(Fecha_Actual.this).execute(prof);
-
-        }else{
+       // boolean cargado = equipocargado();
+boolean cargado = false;
+        if(cargado){
+            new BuscarEquipoTask().execute(prof);
 
 
         }
-        adapter_equipo = new DepartamentoAdapter(ListaDepartamentosActivity.this,lista);
-        listaAlojamientos.setAdapter(departamentosAdapter);
+        adapter = new Equipo_Adapter(Fecha_Actual.this,formacion);
+        listaJugadores.setAdapter(adapter);
     }
 
-    arquero = (TextView) findViewById(R.id.arquero);
+    /*arquero = (TextView) findViewById(R.id.arquero);
     arquero.setOnClickListener(new View.OnClickListener() {
 
         @Override
@@ -81,6 +83,6 @@ public class Fecha_Actual extends AppCompatActivity {
             alert.show();
 
         }
-    });
+    });*/
 
 }
